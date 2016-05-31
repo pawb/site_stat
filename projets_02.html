@@ -82,19 +82,19 @@
 	   <div class="value-props row">
        <div class="twelve columns" >
          <h5 class="espacement_h5"> Objectifs : </h5>
-  	      <div onload="init()" class="twelve columns value-prop" >
+  	      <div class="twelve columns value-prop" >
 
             <div id="mapid"> </div>
               <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"> </script>
               <script>
-              function init(){
+              
               var mymap = L.map('mapid').setView([51.505, -0.09], 13);
               var polygon = L.polygon([
               [51.509, -0.08],
               [51.503, -0.06],
               [51.51, -0.047]
               ]).addTo(mymap);
-              }
+
 
               </script>
 
