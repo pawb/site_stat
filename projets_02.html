@@ -31,6 +31,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"> </script>
+   
 </head>
 
 <body>
@@ -87,7 +88,7 @@
             <script>
 
               // initialize the map
-              var map = L.map('map').setView([42.35, -71.08], 13);
+              var mapid = L.map('map').setView([42.35, -71.08], 13);
 
               // load a tile layer
               L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
