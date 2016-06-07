@@ -89,10 +89,11 @@
 
               <script>
 
-              var mymap = L.map('mapid').setView([48.8, 2.3], 13);
-              var marker = L.marker([48.8, 2.3]).addTo(mymap);
+              var mymap = L.map('mapid').setView([48.8, 2.3], 4);
               L.tileLayer('https://api.mapbox.com/styles/v1/pawpaw/cip5w64hg0016dfm52kr1jfwz/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGF3cGF3IiwiYSI6ImNpb3Z5NXB0ejAwNzJ3ZGtqcWNoOWF4cHMifQ.s3NFmGt5WTr7bIbyXukUNQ', {
               }).addTo(mymap);
+
+              L.geoJson(tot_blesse).addTo(map);
 
 
               </script>

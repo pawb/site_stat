@@ -368,7 +368,10 @@ height: 30px;
 
 /* map leaflet
 -------------------------------*/
-#mapid { height: 360px; }
+#mapid {
+height: 560px;
+width:  250px;
+}
 
 /* foooter
 -------------------------------*/
