@@ -16,6 +16,7 @@
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+		text-decoration: none
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -24,6 +25,7 @@
 
 	body {
 		line-height: 1;
+
 	}
 
 	ol, ul {
@@ -1583,11 +1585,7 @@
 		text-decoration: none;
 	}
 
-		a:hover {
-			border-bottom-color: transparent;
-			color: #49bf9d !important;
-			text-decoration: none;
-		}
+
 
 	strong, b {
 		color: #787878;
@@ -2107,10 +2105,12 @@
 		list-style: disc;
 		margin: 0 0 2em 0;
 		padding-left: 1em;
+		text-decoration: none
 	}
 
 		ul li {
 			padding-left: 0.5em;
+			text-decoration: none
 		}
 
 		ul.alt {
@@ -2902,6 +2902,7 @@
 
 			ul.icons li .icon {
 				font-size: 1.25em;
+				text-decoration: none
 			}
 
 		/* Header */
@@ -3001,6 +3002,7 @@
 
 			ul.labeled-icons li {
 				padding-left: 2em;
+				text-decoration: none
 			}
 
 				ul.labeled-icons li h3 {
@@ -3062,6 +3064,7 @@
 					padding: 1em 0 0 0;
 					text-align: center;
 					width: 100%;
+					text-decoration: none
 				}
 
 					ul.actions li:first-child {
