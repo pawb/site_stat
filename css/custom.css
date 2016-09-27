@@ -363,6 +363,11 @@ height: 30px;
   color: #9E9E9E;
 }
 
+.a_link:over
+{
+	color: #007F6E;
+}
+
 /* Boutons
 -------------------------------*/
 
