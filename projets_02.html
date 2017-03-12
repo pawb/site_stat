@@ -92,7 +92,7 @@
 
 
               <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"> </script>
-              <script type="sources/javascript" src="france_blesse.js"></script>
+              <script src="sources/javascript/france_blesse.js"></script>
 
               <script>
 
@@ -101,32 +101,27 @@
               {
               }).addTo(mymap);
 
-
-
               // function
               function getColor(d) {
-                return d > 1000 ? '#800026' :
-                       d > 500  ? '#BD0026' :
-                       d > 200  ? '#E31A1C' :
-                       d > 100  ? '#FC4E2A' :
-                       d > 50   ? '#FD8D3C' :
-                       d > 20   ? '#FEB24C' :
-                       d > 10   ? '#FED976' :
-                                  '#FFEDA0';
-                }
+                return  d > 60  ? '#FC4E2A' :
+                        d > 50   ? '#FD8D3C' :
+                        d > 40   ? '#FEB24C' :
+                        d > 22   ? '#FED976' :
+                        '#FFEDA0';
+                              }
 
-                function style(feature) {
-                    return {
-                        fillColor: getColor(feature.properties.tot_blesse),
-                        weight: 2,
-                        opacity: 1,
-                        color: 'white',
-                        dashArray: '3',
-                        fillOpacity: 0.7
-                    };
-                }
+              function style(feature) {
+                return {
+                  fillColor: getColor(feature.properties.tot_blesse),
+                                      weight: 2,
+                                      opacity: 1,
+                                      color: 'white',
+                                      dashArray: '3',
+                                      fillOpacity: 0.7
+                                  };
+                              }
 
-                L.geoJson.(france_blesse, {style: style}).addTo(mymap);
+              L.geoJson(france_blesse,{style: style} ).addTo(mymap);
 
 
 
