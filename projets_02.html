@@ -30,7 +30,7 @@
   <!-- Javascript Leaflet
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-
+   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"> </script>
 
 </head>
 
@@ -88,20 +88,37 @@
          <h5 class="espacement_h5"> Objectifs : EN CONSTRUCTION </h5>
   	      <div class="twelve columns value-prop" >
 
-            <div id="mapid"> </div>
+            <div id="map">
+            </div>
 
 
-              <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"> </script>
               <script src="sources/javascript/france_blesse.js"></script>
 
               <script>
 
-              var mymap = L.map('mapid').setView([48.8, 2.3], 5);
+              var map = L.map('map').setView([48.8, 2.3], 5);
               L.tileLayer('https://api.mapbox.com/styles/v1/pawpaw/cip5yvpph001idlnnufnuziho/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGF3cGF3IiwiYSI6ImNpb3Z5NXB0ejAwNzJ3ZGtqcWNoOWF4cHMifQ.s3NFmGt5WTr7bIbyXukUNQ',
               {
-              }).addTo(mymap);
+              }).addTo(map);
 
               // function
+
+              var info = L.control();
+
+              info.onAdd = function (map) {
+                  this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+                  this.update();
+                  return this._div;
+              };
+
+              // method that we will use to update the control based on feature properties passed
+              info.update = function (props) {
+                  this._div.innerHTML = '<h4>Nb de blessés par accidents de la route</h4>' +  (props ?
+                      '<b>' + props.nom + '</b><br />' + props.tot_blesse + ' blessés / 100 000 hbts<sup>2</sup>'
+                      : 'Survoler un département');
+              };
+
+              info.addTo(map);
               function getColor(d) {
                 return  d > 60  ? '#FC4E2A' :
                         d > 50   ? '#FD8D3C' :
@@ -121,7 +138,48 @@
                                   };
                               }
 
-              L.geoJson(france_blesse,{style: style} ).addTo(mymap);
+                  function highlightFeature(e) {
+                    var layer = e.target;
+
+                    layer.setStyle({
+                        weight: 3,
+                        color: '#666',
+                        dashArray: '',
+                        fillOpacity: 0.7
+                    });
+
+                    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                        layer.bringToFront();
+                    }
+
+                    info.update(layer.feature.properties);
+                }
+
+                var geojson;
+
+                function resetHighlight(e) {
+                  geojson.resetStyle(e.target);
+                  info.update();
+                }
+
+                function zoomToFeature(e) {
+                map.fitBounds(e.target.getBounds());
+                }
+
+                function onEachFeature(feature, layer) {
+                  layer.on({
+                  mouseover: highlightFeature,
+                  mouseout: resetHighlight,
+                  click: zoomToFeature
+                });
+                }
+
+                geojson = L.geoJson(france_blesse, {
+                  style: style,
+                  onEachFeature: onEachFeature
+                }).addTo(map);
+
+              //L.geoJson(france_blesse,{style: style} ).addTo(mymap);
 
 
 
