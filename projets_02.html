@@ -71,7 +71,7 @@
     <div class="separator"> </div>
     <div class="separator"> </div>
 
-    <h3 class="title"> 
+    <h3 class="title">
       <a class="a_link" href="projets.html">
         <img class="rezize_image_h3" src="images/scooter.svg"  onmouseover=this.src="images/scooter_over.svg" onmouseout=this.src="images/scooter.svg">
       </a>  &nbsp Accidents de la route
@@ -97,10 +97,38 @@
               <script>
 
               var mymap = L.map('mapid').setView([48.8, 2.3], 5);
-              L.tileLayer('https://api.mapbox.com/styles/v1/pawpaw/cip5yvpph001idlnnufnuziho/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGF3cGF3IiwiYSI6ImNpb3Z5NXB0ejAwNzJ3ZGtqcWNoOWF4cHMifQ.s3NFmGt5WTr7bIbyXukUNQ', {
+              L.tileLayer('https://api.mapbox.com/styles/v1/pawpaw/cip5yvpph001idlnnufnuziho/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicGF3cGF3IiwiYSI6ImNpb3Z5NXB0ejAwNzJ3ZGtqcWNoOWF4cHMifQ.s3NFmGt5WTr7bIbyXukUNQ',
+              {
               }).addTo(mymap);
 
-              L.geoJson(france_blesse).addTo(mymap);
+
+
+              // function
+              function getColor(d) {
+                return d > 1000 ? '#800026' :
+                       d > 500  ? '#BD0026' :
+                       d > 200  ? '#E31A1C' :
+                       d > 100  ? '#FC4E2A' :
+                       d > 50   ? '#FD8D3C' :
+                       d > 20   ? '#FEB24C' :
+                       d > 10   ? '#FED976' :
+                                  '#FFEDA0';
+                }
+
+                function style(feature) {
+                    return {
+                        fillColor: getColor(feature.properties.tot_blesse),
+                        weight: 2,
+                        opacity: 1,
+                        color: 'white',
+                        dashArray: '3',
+                        fillOpacity: 0.7
+                    };
+                }
+
+                L.geoJson(france_blesse).addTo(mymap);
+
+
 
 
               </script>
