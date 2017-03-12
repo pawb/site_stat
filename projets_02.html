@@ -114,7 +114,7 @@
               // method that we will use to update the control based on feature properties passed
               info.update = function (props) {
                   this._div.innerHTML = '<h5>Nb de blessés par an par accidents de la route</h5>' +  (props ?
-                      '<b>' + props.nom + ' ' + props.tot_blesse + ' blessés / 100 000 hbts'
+                      '<b>' + props.nom + '</b><br />' + props.tot_blesse + ' blessés / 100 000 hbts'
                       : 'Survoler un département');
               };
 
@@ -179,7 +179,8 @@
                   onEachFeature: onEachFeature
                 }).addTo(map);
 
-                map.attributionControl.addAttribution('BDD accidents corporels de la route &copy; <a href="https://www.data.gouv.fr/fr/datasets/base-de-donnees-accidents-corporels-de-la-circulation/> data.gouv.fr</a>');
+                map.attributionControl.addAttribution('BDD accidents corporels de la route &copy; <a href="https://www.data.gouv.fr/fr/datasets/base-de-donnees-accidents-corporels-de-la-circulation/"> data.gouv.fr</a>');
+
                 var legend = L.control({position: 'bottomright'});
 
                 	legend.onAdd = function (map) {
