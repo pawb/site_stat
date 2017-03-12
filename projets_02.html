@@ -113,8 +113,8 @@
 
               // method that we will use to update the control based on feature properties passed
               info.update = function (props) {
-                  this._div.innerHTML = '<h4>Nb de blessés par accidents de la route</h4>' +  (props ?
-                      '<b>' + props.nom + '</b><br />' + props.tot_blesse + ' blessés / 100 000 hbts<sup>2</sup>'
+                  this._div.innerHTML = '<h5>Nb de blessés par an par accidents de la route</h5>' +  (props ?
+                      '<b>' + props.nom + '</b><br />' + props.tot_blesse + ' blessés / 100 000 hbts'
                       : 'Survoler un département');
               };
 
