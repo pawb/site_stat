@@ -1,4 +1,5 @@
 // Enter data (this could have been imported)
+// 1 px pour 1000 accidents, Blesses_legers, Blesses_graves, morts
 const socialMedia = [
 	{
 		year: '2006',
