@@ -414,15 +414,34 @@ margin: 2px;
 
 /* graph accidents page projet 2
 -------------------------------*/
-
-.waffle {
+.stack{
   display: flex;
-  flex-wrap: wrap;
-  width: 140px;
+  flex-direction: row;
+  align-items: flex-end;
+  margin: 0 auto;
+  width: 200px;
 }
 
-.block {
-  width: 10px;
-  height: 10px;
-  margin: 2px;
+.group{
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 0.5rem 0;
+  width: 45px;
+  align-items: center;
+}
+
+.block{
+  width: 15px;
+  order: 1;
+  margin-bottom: 0rem;
+}
+
+.label{
+  order: 0;
+  width: 50px;
+  text-align: center;
+}
+
+.count{
+  order: 2;
 }
