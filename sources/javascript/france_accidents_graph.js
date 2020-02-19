@@ -1,24 +1,24 @@
 // Enter data (this could have been imported)
 const socialMedia = [
 	{
-		month: 'April',
-		counts: { Facebook: 7045, YouTube: 4816, Twitter: 4717, Instagram: 96 }
+		year: '2006',
+		counts: { Accidents: 89612, Blesses_legers: 61362, Blesses_graves: 35962, Morts: 4641 }
 	},
 	{
-		month: 'May',
+		year: '2007',
 		counts: { Facebook: 11401, YouTube: 1708, Twitter: 10433, Instagram: 129 }
 	},
 	{
-		month: 'June',
+		year: '2008',
 		counts: { Facebook: 16974, YouTube: 3190, Twitter: 9874, Instagram: 471 }
 	}
 ];
 
-// Add a total value for each month
+// Add a total value for each year
 const smTotal = socialMedia.map(d => {
 	const counts = d3.entries(d.counts);
 	const total = d3.sum(counts, c => c.value);
-	return { month: d.month, counts, total };
+	return { year: d.year, counts, total };
 });
 
 // create a Y scale for the data
@@ -36,7 +36,7 @@ const scaleColor = d3
 // Select the figure element
 const stack = d3.select('.stack');
 
-// Add a div for each month
+// Add a div for each year
 const group = stack
 	.selectAll('.group')
 	.data(smTotal)
@@ -56,10 +56,10 @@ const block = group
 	// Scale the color based on the social media type
 	.style('background-color', d => scaleColor(d.key));
 
-// Add a month label
+// Add a year label
 const label = group
 	.append('text')
-	.text(d => d.month)
+	.text(d => d.year)
 	.attr('class', 'label');
 
 // Add a total count label
@@ -67,3 +67,14 @@ const count = group
 	.append('text')
 	.text(d => d3.format('0.2s')(d.total))
 	.attr('class', 'count');
+
+
+
+
+  // TEST PAW
+
+// Add a year label
+const label = group
+.append('text')
+.text(d => d.year)
+.attr('class', 'label');
