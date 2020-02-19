@@ -6,11 +6,11 @@ const socialMedia = [
 	},
 	{
 		year: '2007',
-		counts: { Facebook: 11401, YouTube: 1708, Twitter: 10433, Instagram: 129 }
+		counts: { Accidents: 81472, Blesses_legers: 55860, Blesses_graves: 32690, Morts: 4191}
 	},
 	{
 		year: '2008',
-		counts: { Facebook: 16974, YouTube: 3190, Twitter: 9874, Instagram: 471 }
+		counts: { Accidents: 76567, Blesses_legers: 52919, Blesses_graves: 30896, Morts: 3916 }
 	}
 ];
 
@@ -31,7 +31,7 @@ const scaleY = d3
 const scaleColor = d3
 	.scaleOrdinal()
 	.range(['#FE4A49', '#cccccc', '#dddddd', '#eeeeee'])
-	.domain(['Facebook', 'YouTube', 'Twitter', 'Instagram']);
+	.domain(['Accidents', 'Blesses_legers', 'Blesses_graves', 'Morts']);
 
 // Select the figure element
 const stack = d3.select('.stack');
