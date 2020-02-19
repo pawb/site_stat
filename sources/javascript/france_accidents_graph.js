@@ -28,7 +28,7 @@ const scaleY = d3
 	.range([0, 200])
 	.domain([0, d3.max(smTotal, d => d.total)]);
 
-// create a color scale for the data where Facebook is red
+// create a color scale for the data where Accidents is red
 const scaleColor = d3
 	.scaleOrdinal()
 	.range(['#FE4A49', '#cccccc', '#dddddd', '#eeeeee'])
