@@ -141,11 +141,10 @@ a.sitename, a:visited.sitename {
   margin:auto;
  }
 
-
+/* currently ems cause chrome bug misinterpreting rems on body element */
 body {
   background: #FDFEFE;
-
-  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  font-size: 1.5em;
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -248,7 +247,7 @@ border-bottom: 1px solid #eee;
     height: auto;
     line-height: 30px;
     margin-bottom: .75rem;
-    font-weight: 600;
+    font-weight: 100;
     letter-spacing: .0rem;
     color:#424242;
     margin: 2.5rem auto 0;
@@ -270,9 +269,12 @@ border-bottom: 1px solid #eee;
 
 .value-prop {
   margin-top: 1rem;
-
-
 }
+
+.value-prop_null {
+  margin-top: 0rem;
+}
+
 .value-props {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -509,4 +511,16 @@ margin: 2px;
     }
   .my-legend a {
     color: #777;
+    }
+
+    /* liste
+    -------------------------------*/
+    li{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        /*border:1px solid grey;*/
+    }
+
+    li:first-child {
+        margin-top:0;
     }
