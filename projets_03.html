@@ -121,9 +121,40 @@
           <div class="twelve columns value-prop" >
 
             un peu de code
-            <pre><code>.some-class {
-              background-color: red;
-            }</code></pre>
+            <pre><code>p<- ggplot(data=base_graph, aes(x=reorder(dep_nom, desc(dep_nom)), y=pc_lits_rea_occupe_COVID, fill=dep_nom)) + 
+              geom_bar(stat = "identity") + 
+              coord_flip() +
+              ylab("% de lits de REA") +
+              xlab("Départements")+
+              scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, by = 10))+
+              ggtitle("% de lits de REA occupés par des patients \n Covid-19 à hier") +
+              labs(color='Département') +
+              theme(legend.position = "none") + 
+              geom_text(aes(label = paste0(round(pc_lits_rea_occupe_COVID, digits=1), "%")), 
+                        color="white", size=9, position =  position_dodge(0.9), hjust = -0.1) +
+              geom_hline(yintercept = 30, linetype="solid", 
+                         color = "#f54291", size=1.3)+
+              annotate(geom = 'text', label = 'Seuil : 30%', x = 4.8, 
+                       y=35, hjust = 0, vjust = 1, col = "#f54291", size=10, face="bold")+
+              labs(
+                   caption  = "@pawilloquaux") 
+            
+            graph_covid <- ggthemr("flat dark", type="outer", layout="scientific", spacing=2)
+            p + theme(
+              #titre
+              plot.title = element_text(color="#a6f6f1", size=35, face="bold"),
+              plot.title.position = "plot",
+              #titre des axes
+              axis.title.x = element_text(color="#a6f6f1", size=20),
+              axis.title.y = element_text(color="#a6f6f1", size=20),
+              #contour et trait
+              axis.ticks = element_line(colour = "#a6f6f1",  size = 1, linetype = "solid"),
+              axis.line = element_line(colour = "#a6f6f1",  size = 1, linetype = "solid"),
+              axis.text=element_text(size=20),
+              #monblaze
+              plot.caption = element_text(hjust = 0, face= "italic", size =20), #Default is hjust=1
+              plot.caption.position =  "plot"
+            )</code></pre>
 
             <!-- Remember every whitespace and break will be preserved in a <pre>, including indentation in your code -->
             la fin du code
